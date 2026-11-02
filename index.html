@@ -31,7 +31,7 @@ small{color:#9aa1b2}
 <iframe id="f" style="display:none"></iframe>
 
 <script>
-const KEY = 'ntpc_url';
+const KEY = 'expense_url';
 const RE = /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/;
 const $ = id => document.getElementById(id);
 function get() { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
@@ -47,8 +47,8 @@ function save() {
   set(v); show();
 }
 
-// One-time setup link: .../ntpc-app/#u=<your /exec url>   (text after # is never sent to GitHub)
-// Reset the saved link: open .../ntpc-app/?reset
+// One-time setup link: .../due-expense-tracker/#u=<your /exec url>
+// Reset the saved link: open .../due-expense-tracker/?reset
 const h = new URLSearchParams(location.hash.slice(1));
 if (h.get('u') && RE.test(h.get('u'))) set(h.get('u'));
 if (location.search.indexOf('reset') >= 0 || h.has('reset')) set('');
